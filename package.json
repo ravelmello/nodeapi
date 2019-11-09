@@ -1,0 +1,29 @@
+{
+  "name": "express-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravelmello/nodeapi.git"
+  },
+  "author": "Ravel Mello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravelmello/nodeapi/issues"
+  },
+  "homepage": "https://github.com/ravelmello/nodeapi#readme",
+  "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.1",
+    "mongoose": "^5.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
