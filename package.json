@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ravelmello/nodeapi#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.7",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-joi-validation": "^4.0.1",
     "mongoose": "^5.7.8"
