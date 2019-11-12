@@ -2,11 +2,27 @@ const Post = require('../models/Post');
 
 class PostController {
     async index (req, res) {
-        return res.send(await Post.find({}));
+        return res.send(await Post.paginate({}, {
+            page: req.query.page || 1,
+            limit: 2,
+            sort: 'createdAt',
+            populate: {
+                path: 'author',
+                select: 'name email'
+            }
+        }));
     }
 
     async show (req, res) {
-        const post = await Post.findById(req.params.postId);
+        const post = await Post.findById(req.params.postId)
+        .populate('author', 'name email')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'author',
+                select: 'name email'
+            }
+        });
         if(post) {
             return res.send(post);
         }
@@ -14,7 +30,7 @@ class PostController {
     }
 
     async store (req, res) {
-        await Post.create(req.body);
+        await Post.create({...req.body, author: req.userId}); // using a spread operation
         return res.sendStatus(201);
     }
 
